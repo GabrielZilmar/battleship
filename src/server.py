@@ -131,7 +131,6 @@ def start(con, boards, size, ships, quantity):
 
         while turn == util.Turn.ENEMY:
                 if i != -1 and j != -1:
-                    # Jogada anterior foi um acerto.
                     if not direction and not step:
                         direction = randomize()
                         step = random.randint(-1, 0) | 1
@@ -144,7 +143,6 @@ def start(con, boards, size, ships, quantity):
                     print((horizontal, vertical))
                     print((i, j))
                 else:
-                    # Nova tentativa aleatória.
                     i, j = randomize()
                     
                 res = move(boards['player'], 10, i, j)
@@ -161,7 +159,6 @@ def start(con, boards, size, ships, quantity):
                     i = j = -1
                     direction = step = None
                 else:
-                    # Jogada inválida: reexecutar loop para nova tentativa
                     direction = randomize()
                     step = random.randint(-1, 0) | 1
 
@@ -192,7 +189,7 @@ def start(con, boards, size, ships, quantity):
 
 def start_server():
     HOST = util.get_address()
-    PORT = int(input('Porta: '))
+    PORT = int(input('Port: '))
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -200,12 +197,12 @@ def start_server():
 
     server.listen(5)
 
-    print('Servidor iniciado. Aguardando conexões...')
-    print('Host: {}\t Porta: {}'.format(HOST, PORT))
+    print('Server stating...')
+    print('Host: {}\t Port: {}'.format(HOST, PORT))
 
     while True:
         con, client = server.accept()
-        print('{} conectado. Preparando novo jogo...'.format(client[0]))
+        print('{} connected.Preparing new game...'.format(client[0]))
         threading.Thread(target=set_game, args=(con, )).start()
 
 if __name__ == '__main__':

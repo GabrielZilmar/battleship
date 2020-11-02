@@ -4,7 +4,7 @@ import enum
 Turn = enum.Enum('Turn', 'ENEMY PLAYER')
 MoveStatus = enum.Enum('MoveStatus', 'HIT MISS INVALID')
 MoveResult = {
-    MoveStatus.HIT: 'Acerto',
+    MoveStatus.HIT: 'Hit',
     MoveStatus.MISS: 'Erro',
     MoveStatus.INVALID: 'Movimento Inválido',
 }
