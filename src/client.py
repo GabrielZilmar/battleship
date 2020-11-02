@@ -132,8 +132,7 @@ def new_board(ships, num_ships, board_size):
     
     return player_board
 
-def set_game():    
-    print('{} Battleship {}\n'.format('=' * 30, '=' * 30))
+def set_game():
     host = input('Insert the host: ')
     port = int(input('Insert the port: '))
 

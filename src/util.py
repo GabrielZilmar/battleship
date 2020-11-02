@@ -6,7 +6,7 @@ MoveStatus = enum.Enum('MoveStatus', 'HIT MISS INVALID')
 MoveResult = {
     MoveStatus.HIT: 'Hit',
     MoveStatus.MISS: 'Erro',
-    MoveStatus.INVALID: 'Movimento Inválido',
+    MoveStatus.INVALID: 'Inválid movement',
 }
 
 Winner = enum.Enum('Winner', 'NONE SERVER PLAYER')
